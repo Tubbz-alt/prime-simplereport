@@ -31,7 +31,8 @@ const initialTimerValues: Omit<Timer, "id"> = {
   alarmed: false,
 } as const;
 
-const alarmSound = new Audio(require("./test-timer.mp3"));
+const alarmFile = require("./test-timer.mp3")?.default;
+const alarmSound = new Audio(alarmFile);
 
 const timerTick = () => {
   const now = Date.now();
